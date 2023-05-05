@@ -1,0 +1,15 @@
+.navbar {
+  height: 70px;
+  background-color: black;
+  border-bottom: 1px solid blue;
+}
+
+.navbar_container {
+  float: right;
+  padding: 1rem;
+}
+.logo_container {
+  text-decoration-color: blue;
+  background-color: beige;
+  float: left;
+}
