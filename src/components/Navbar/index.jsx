@@ -10,6 +10,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { alpha, styled } from "@mui/material/styles";
 import AppButton from "../CustomButton";
+import EthereumLogo from "../../assets/etherem-logo.png";
 import "./Navbar.css";
 
 const CustomNavbar = styled(AppBar)(({ theme }) => ({
@@ -34,7 +35,10 @@ function Navbar() {
             Title Here
           </Typography>
           <div className="navbar-action-buttons">
-          <AppButton color="inherit">Chain</AppButton>
+          <AppButton color="inherit" styles={{display:'flex',gap:'0.5rem'}}>
+            <img src={EthereumLogo} width={'auto'} height={20} />
+            Ethereum
+            </AppButton>
           <AppButton styles={{backgroundColor:'rgba(255, 63, 109, 0.1)',color:'rgba(255,0,61,1)'}}>Connect Wallet</AppButton>
           </div>
         </Toolbar>
