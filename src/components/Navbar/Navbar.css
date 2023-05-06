@@ -13,3 +13,7 @@
   background-color: beige;
   float: left;
 }
+.navbar-action-buttons{
+  display: flex;
+  gap: 1rem;
+}

@@ -1,13 +1,13 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
+import { Stats } from "./sections";
 
 function App() {
   return (
     <>
-      <div>
         <Navbar></Navbar>
-        <Home></Home>
+      <div>
+        <Stats/>
       </div>
     </>
   );
