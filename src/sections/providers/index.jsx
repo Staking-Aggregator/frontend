@@ -1,8 +1,9 @@
 import React from 'react'
+import './index.css';
 
 function Providers() {
   return (
-    <div>Providers</div>
+    <div className='providers-root-div'>Providers</div>
   )
 }
 
