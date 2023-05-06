@@ -3,6 +3,8 @@ import { CardContent, CardMedia } from "@mui/material";
 import { AppCard } from "../../components";
 import LidoLogo from "../../assets/lido.png";
 import RocketPoolLogo from "../../assets/rocketpool.png";
+import StakeWiseLogo from "../../assets/stakewise.png";
+import StafiLogo from "../../assets/stafi.png";
 import "./index.css";
 
 function Stats() {
@@ -20,6 +22,20 @@ function Stats() {
       tokenName:"RocketPool Staked ETH",
       tokenSymbol:'rETH',
       currentPrice:'$10.00',
+    },
+    {
+      tokenLogo:StakeWiseLogo,
+      altText:'Stakewise',
+      tokenName:'Stakewise',
+      tokenSymbol:'sETH',
+      currentPrice:'$7.00',
+    },
+    {
+      tokenLogo:StafiLogo,
+      altText:'Stafi',
+      tokenName:'Stafi',
+      tokenSymbol:'tETH',
+      currentPrice:'$9.25',
     },
   ]
   return (

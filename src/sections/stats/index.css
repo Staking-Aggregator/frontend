@@ -19,9 +19,9 @@
 }
 .lsts-token-prices{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1.5rem;
-    width: 65%;
+    width: 100%;
 }
 .token-price{
     display: flex;

@@ -3,6 +3,8 @@ import { CardContent, CardMedia,CardActions } from "@mui/material";
 import { AppCard,AppButton } from "../../components";
 import LidoLogo from "../../assets/lido.png";
 import RockePoolLogo from "../../assets/rocketpool.png";
+import StakeWiseLogo from "../../assets/stakewise.png";
+import StafiLogo from "../../assets/stafi.png";
 import "./index.css";
 
 function Providers() {
@@ -20,6 +22,20 @@ function Providers() {
       providerName:'Rocket Pool Staked ETH',
       tokenSymbol:'rETH',
       providerNetApr:'5.12%',
+    },
+    {
+      providerLogo:StakeWiseLogo,
+      altText:'Stakewise',
+      providerName:'Stakewise',
+      tokenSymbol:'sETH',
+      providerNetApr:'5.00%',
+    },
+    {
+      providerLogo:StafiLogo,
+      altText:'Stafi',
+      providerName:'Stafi',
+      tokenSymbol:'tETH',
+      providerNetApr:'4.89%',
     },
   ]
   return (
