@@ -30,7 +30,8 @@ function Navbar() {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton> */}
+          </IconButton> 
+          */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Title Here
           </Typography>
