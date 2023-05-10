@@ -14,10 +14,13 @@ import EthereumLogo from "../../assets/etherem-logo.png";
 import "./Navbar.css";
 
 const CustomNavbar = styled(AppBar)(({ theme }) => ({
-  backgroundColor:'#161616',
+  backgroundColor: "#161616",
 }));
 
 function Navbar() {
+  const handleClick = () => {
+    window.open("https://app.uniswap.org/#/swap", "_blank");
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <CustomNavbar position="static">
@@ -35,11 +38,24 @@ function Navbar() {
             Title Here
           </Typography>
           <div className="navbar-action-buttons">
-          <AppButton color="inherit" styles={{display:'flex',gap:'0.5rem'}}>
-            <img src={EthereumLogo} width={'auto'} height={20} />
-            Ethereum
+            <AppButton
+              color="inherit"
+              styles={{ display: "flex", gap: "0.5rem" }}
+              onClick={handleClick}
+            >
+              Buy ETH
             </AppButton>
-          <AppButton styles={{backgroundColor:'rgba(255, 63, 109, 0.1)',color:'rgba(255,0,61,1)'}}>Connect Wallet</AppButton>
+            <div className="ethlogo-container">
+              <img src={EthereumLogo} width={"auto"} height={20} />
+            </div>
+            <AppButton
+              styles={{
+                backgroundColor: "rgba(255, 63, 109, 0.1)",
+                color: "rgba(255,0,61,1)",
+              }}
+            >
+              Connect Wallet
+            </AppButton>
           </div>
         </Toolbar>
       </CustomNavbar>

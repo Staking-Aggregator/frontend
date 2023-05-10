@@ -13,7 +13,14 @@
   background-color: beige;
   float: left;
 }
-.navbar-action-buttons{
+.navbar-action-buttons {
   display: flex;
   gap: 1rem;
+}
+.ethlogo-container {
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--light-black);
+  border-radius: 8px;
+  padding: 0.5rem;
 }

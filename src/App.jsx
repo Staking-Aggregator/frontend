@@ -1,14 +1,14 @@
 import "./App.css";
-import {Navbar} from "./components";
-import { Stats,Providers } from "./sections";
+import { Navbar } from "./components";
+import { Stats, Providers } from "./sections";
 
 function App() {
   return (
     <>
-        <Navbar></Navbar>
+      <Navbar></Navbar>
       <div className="app-root-div">
-        <Stats/>
-        <Providers/>
+        {/* <Stats/> */}
+        <Providers />
       </div>
     </>
   );
