@@ -36,7 +36,7 @@ function Navbar() {
           </IconButton> 
           */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Title Here
+            STAKEBOOST
           </Typography>
           <div className="navbar-action-buttons">
             <div className="navbar-average">
