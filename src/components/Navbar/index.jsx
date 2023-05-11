@@ -39,6 +39,9 @@ function Navbar() {
             Title Here
           </Typography>
           <div className="navbar-action-buttons">
+            <div className="navbar-average">
+              <p>Avrg. APR: 4.89%</p>
+            </div>
             <AppButton
               color="inherit"
               styles={{ display: "flex", gap: "0.5rem" }}

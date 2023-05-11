@@ -6,6 +6,11 @@ import RockePoolLogo from "../../assets/rocketpool.png";
 import StakeWiseLogo from "../../assets/stakewise.png";
 import StafiLogo from "../../assets/stafi.png";
 import "./index.css";
+import Card from "@mui/material/Card";
+// import CardActions from "@mui/material/CardActions";
+// import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 function Providers() {
   const providers = [
@@ -99,6 +104,25 @@ function Providers() {
               </CardActions>
             </AppCard>
           ))}
+        </div>
+        <div className="cardheading-container">
+          <div className="heading">
+            <h2>How to stake</h2>
+          </div>
+          <div className="infocard-conatiner">
+            <p>Step1:</p>
+            <AppCard styles={{ backgroundColor: "#1d1e1f" }}>
+              <CardContent>Connect your Wallet</CardContent>
+            </AppCard>
+            <p>Step2:</p>
+            <AppCard styles={{ backgroundColor: "#1d1e1f" }}>
+              <CardContent>Choose your Provider</CardContent>
+            </AppCard>
+            <p>Step3:</p>
+            <AppCard styles={{ backgroundColor: "#1d1e1f" }}>
+              <CardContent>Sign Transaction</CardContent>
+            </AppCard>
+          </div>
         </div>
       </div>
     </div>
