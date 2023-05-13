@@ -11,6 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { alpha, styled } from "@mui/material/styles";
 import AppButton from "../CustomButton";
 import EthereumLogo from "../../assets/etherem-logo.png";
+import NameLogo from "../../assets/name-logo.png";
 import "./Navbar.css";
 
 const CustomNavbar = styled(AppBar)(({ theme }) => ({
@@ -36,7 +37,7 @@ function Navbar() {
           </IconButton> 
           */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            STAKEBOOST
+            <img src={NameLogo} height={80}></img>
           </Typography>
           <div className="navbar-action-buttons">
             <div className="navbar-average">
