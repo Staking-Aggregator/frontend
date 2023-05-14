@@ -9,6 +9,9 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { alpha, styled } from "@mui/material/styles";
+import { useSnapshot } from "valtio";
+import state from "../../store";
+import {connectWallet} from '../../utils';
 import AppButton from "../CustomButton";
 import EthereumLogo from "../../assets/etherem-logo.png";
 import NameLogo from "../../assets/name-logo.png";
@@ -19,9 +22,12 @@ const CustomNavbar = styled(AppBar)(({ theme }) => ({
 }));
 
 function Navbar() {
-  const handleClick = () => {
+  const snap = useSnapshot(state);
+
+  const handleClickByETH = () => {
     window.open("https://app.uniswap.org/#/swap", "_blank");
   };
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <CustomNavbar position="static">
@@ -46,7 +52,7 @@ function Navbar() {
             <AppButton
               color="inherit"
               styles={{ display: "flex", gap: "0.5rem" }}
-              onClick={handleClick}
+              onClick={handleClickByETH}
             >
               Buy ETH
             </AppButton>
@@ -54,12 +60,14 @@ function Navbar() {
               <img src={EthereumLogo} width={"auto"} height={20} />
             </div>
             <AppButton
+            onClick={connectWallet}
               styles={{
                 backgroundColor: "rgba(255, 63, 109, 0.1)",
                 color: "rgba(255,0,61,1)",
               }}
             >
-              Connect Wallet
+              {console.log("snap: ",snap.walletAddress)}
+              {snap.walletAddress?`${snap.walletAddress?.slice(0,5)}...${snap.walletAddress?.slice(-3)}`:'Connect Wallet'}
             </AppButton>
           </div>
         </Toolbar>
