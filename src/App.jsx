@@ -23,7 +23,7 @@ function App() {
       // Wallet is already connected
       connectWallet();
     }
-  },[])
+  },[]);
   return (
     <>
       <Navbar></Navbar>
