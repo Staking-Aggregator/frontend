@@ -110,18 +110,24 @@ function Providers() {
             <h2>How to stake</h2>
           </div>
           <div className="infocard-conatiner">
-            <p>Step1:</p>
-            <AppCard styles={{ backgroundColor: "#1d1e1f" }}>
-              <CardContent>Connect your Wallet</CardContent>
-            </AppCard>
-            <p>Step2:</p>
-            <AppCard styles={{ backgroundColor: "#1d1e1f" }}>
-              <CardContent>Choose your Provider</CardContent>
-            </AppCard>
-            <p>Step3:</p>
-            <AppCard styles={{ backgroundColor: "#1d1e1f" }}>
-              <CardContent>Sign Transaction</CardContent>
-            </AppCard>
+            <div>
+              <p>step1: </p>
+              <AppCard styles={{ backgroundColor: "#1d1e1f" }}>
+                <CardContent>Connect your Wallet</CardContent>
+              </AppCard>
+            </div>
+            <div>
+              <p>step2: </p>
+              <AppCard styles={{ backgroundColor: "#1d1e1f" }}>
+                <CardContent>Choose your Provider</CardContent>
+              </AppCard>
+            </div>
+            <div>
+              <p>step3: </p>
+              <AppCard styles={{ backgroundColor: "#1d1e1f" }}>
+                <CardContent>Sign Transaction</CardContent>
+              </AppCard>
+            </div>
           </div>
         </div>
       </div>
