@@ -1,18 +1,17 @@
-import React from "react";
+import React,{useState} from "react";
 import { CardContent, CardMedia, CardActions } from "@mui/material";
-import { AppCard, AppButton } from "../../components";
+import { useSnapshot } from "valtio";
+import { AppCard, AppButton,StakingCard } from "../../components";
+import state from "../../store";
 import LidoLogo from "../../assets/lido.png";
 import RockePoolLogo from "../../assets/rocketpool.png";
 import StakeWiseLogo from "../../assets/stakewise.png";
 import StafiLogo from "../../assets/stafi.png";
 import "./index.css";
-import Card from "@mui/material/Card";
-// import CardActions from "@mui/material/CardActions";
-// import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 
 function Providers() {
+  const snap = useSnapshot(state);
+  const [selectedProvider, setSelectedProvider] = useState();
   const providers = [
     {
       providerLogo: LidoLogo,
@@ -49,6 +48,7 @@ function Providers() {
   ];
   return (
     <div className="providers-root-div">
+      {!snap.isStakingScreen ? (
       <div className="providers-container">
         <h2>Top Staking Providers</h2>
         <div className="providers">
@@ -93,6 +93,7 @@ function Providers() {
                     backgroundColor: "rgba(255, 63, 109, 0.1)",
                     color: "rgba(255,0,61,1)",
                   }}
+                  onClick={()=>state.isStakingScreen=true}
                 >
                   Stake
                 </AppButton>
@@ -124,7 +125,10 @@ function Providers() {
             </AppCard>
           </div>
         </div>
-      </div>
+      </div>  
+      ):(
+        <StakingCard/>
+      )}
     </div>
   );
 }
