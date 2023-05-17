@@ -90,10 +90,13 @@ function Providers() {
               >
                 <AppButton
                   styles={{
-                    backgroundColor: "rgba(255, 63, 109, 0.1)",
-                    color: "rgba(255,0,61,1)",
+                    backgroundColor: "rgb(135,169,240)",
+                    color: "white",
                   }}
-                  onClick={()=>state.isStakingScreen=true}
+                  onClick={()=>{
+                    state.isStakingScreen=true;
+                    setSelectedProvider(provider)
+                  }}
                 >
                   Stake
                 </AppButton>
@@ -127,7 +130,7 @@ function Providers() {
         </div>
       </div>  
       ):(
-        <StakingCard/>
+        <StakingCard {...selectedProvider}/>
       )}
     </div>
   );
