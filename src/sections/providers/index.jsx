@@ -1,8 +1,9 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { CardContent, CardMedia, CardActions } from "@mui/material";
 import { useSnapshot } from "valtio";
 import { AppCard, AppButton,StakingCard } from "../../components";
 import state from "../../store";
+import { LidoAPR,RocketPoolAPR } from "../../utils";
 import LidoLogo from "../../assets/lido.png";
 import RockePoolLogo from "../../assets/rocketpool.png";
 import StakeWiseLogo from "../../assets/stakewise.png";
@@ -11,8 +12,7 @@ import "./index.css";
 
 function Providers() {
   const snap = useSnapshot(state);
-  const [selectedProvider, setSelectedProvider] = useState();
-  const providers = [
+  const [providers, setProviders] = useState([
     {
       providerLogo: LidoLogo,
       altText: "Lido",
@@ -45,7 +45,63 @@ function Providers() {
       tokenPrice: "($208.5)",
       providerNetApr: "4.89%",
     },
-  ];
+  ]);
+  async function toBeFixedAPR(service) {
+    let response = await service();
+    return response.toFixed(2);
+  }
+  useEffect(() => {
+    (async () =>{
+      let tempProviders = await Promise.all(providers.map(async provider=>{
+        if(provider.providerName === "Lido Staked ETH"){
+          return {
+            ...provider,
+            providerNetApr:`${await toBeFixedAPR(LidoAPR)}%`
+          }
+        }
+        return provider;
+      }))
+      // const responses = await Promise.all([LidoAPR()])
+      setProviders(tempProviders);
+      console.log("in providers responses: ",tempProviders);
+    })()
+  }, [])
+  
+  const [selectedProvider, setSelectedProvider] = useState();
+  // const providers = [
+  //   {
+  //     providerLogo: LidoLogo,
+  //     altText: "Lido",
+  //     providerName: "Lido Staked ETH",
+  //     tokenSymbol: "stEth",
+  //     tokenPrice: "($20.5)",
+  //     providerNetApr: "5.02%",
+  //   },
+  //   {
+  //     providerLogo: RockePoolLogo,
+  //     altText: "Rocket Pool",
+  //     providerName: "Rocket Pool Staked ETH",
+  //     tokenSymbol: "rETH",
+  //     tokenPrice: "($62.1)",
+  //     providerNetApr: "5.12%",
+  //   },
+  //   {
+  //     providerLogo: StakeWiseLogo,
+  //     altText: "Stakewise",
+  //     providerName: "Stakewise",
+  //     tokenSymbol: "sETH",
+  //     tokenPrice: "($79.2)",
+  //     providerNetApr: "5.00%",
+  //   },
+  //   {
+  //     providerLogo: StafiLogo,
+  //     altText: "Stafi",
+  //     providerName: "Stafi",
+  //     tokenSymbol: "tETH",
+  //     tokenPrice: "($208.5)",
+  //     providerNetApr: "4.89%",
+  //   },
+  // ];
   return (
     <div className="providers-root-div">
       {!snap.isStakingScreen ? (
