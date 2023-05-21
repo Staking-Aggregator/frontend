@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 import { ethers } from 'ethers';
 import { Navbar } from "./components";
-import { Stats, Providers } from "./sections";
+import { Stats, Providers,LandingPage } from "./sections";
 import { connectWallet } from "./utils";
+import state from "./store/index";
+import { useSnapshot } from "valtio";
 import ETHStakingChainlinkDataFeedABI from "./contracts-abi/ETHStakingChainlinkDataFeed.json";
 import "./App.css";
 
 function App() {
+  const snap = useSnapshot(state);
   useEffect(()=>{
     // const provider = new ethers.providers.JsonRpcProvider('https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID');
     // const ethStakingDataFeedContract = '0xceA6Aa74E6A86a7f85B571Ce1C34f1A60B77CD29';
@@ -26,11 +29,17 @@ function App() {
   },[]);
   return (
     <>
+    {snap.isLandingPage ? (
+      <LandingPage/>
+    ):(
+      <>
       <Navbar></Navbar>
       <div className="app-root-div">
         {/* <Stats/> */}
         <Providers />
       </div>
+      </>
+    )}
     </>
   );
 }

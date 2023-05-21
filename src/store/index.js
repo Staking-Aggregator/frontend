@@ -5,6 +5,7 @@ const state = proxy({
     signer:{},
     walletAddress:'',
     isStakingScreen:false,
+    isLandingPage:true,
 })
 
 export default state;
