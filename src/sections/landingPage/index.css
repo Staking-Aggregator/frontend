@@ -1,0 +1,75 @@
+.hero_section {
+  display: grid;
+  grid-template-columns: repeat(1, 30rem 40rem);
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.img_conatiner {
+  height: 30rem;
+  width: 40rem;
+  border-radius: 2rem;
+}
+
+.stats_section {
+  display: grid;
+  grid-template-columns: repeat(2, 15rem 15rem);
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}
+.text_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.name_text {
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  box-sizing: inherit;
+}
+
+.small_text {
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-top: 0.75rem;
+  box-sizing: inherit;
+}
+.button_conatiner {
+  margin-top: 1rem;
+}
+.team_heading {
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  box-sizing: inherit;
+}
+.team_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+  flex-direction: column;
+}
+.team_cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.rishabh_card {
+  height: 20rem;
+  font-weight: 20rem;
+  border-radius: 5rem;
+}
+.rishabh_infodiv {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  align-items: center;
+  justify-content: center;
+  height: 25rem;
+}
