@@ -57,13 +57,14 @@
 .team_cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
+  gap: 4rem;
   margin-top: 3rem;
 }
 .rishabh_card {
-  height: 20rem;
-  font-weight: 20rem;
-  border-radius: 5rem;
+  height: 85px;
+  width: 85px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .rishabh_infodiv {
   display: flex;
