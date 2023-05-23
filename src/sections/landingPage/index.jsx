@@ -9,8 +9,48 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import Steafenpic from "../../assets/stefan.png";
+import AnubhaPic from "../../assets/anubha-pic.jpeg";
+import state from "../../store";
 
 function LandingPage() {
+  const teamMembers = [
+    {
+      name:"Stefan Hafele",
+      designation:"Project Manager",
+      profilePic:Steafenpic,
+      socialLinks:"",
+    },
+    {
+      name:"Stefan Hafele",
+      designation:"Project Manager",
+      profilePic:Steafenpic,
+      socialLinks:"",
+    },
+    {
+      name:"Stefan Hafele",
+      designation:"Project Manager",
+      profilePic:Steafenpic,
+      socialLinks:"",
+    },
+    {
+      name:"Rishabh Raghwendra",
+      designation:"Blockchain Developer",
+      profilePic:Rishbhpic,
+      socialLinks:"",
+    },
+    {
+      name:"Anubha Kumari",
+      designation:"Frontend Developer",
+      profilePic:AnubhaPic,
+      socialLinks:"",
+    },
+    {
+      name:"Anubha Kumari",
+      designation:"Frontend Developer",
+      profilePic:AnubhaPic,
+      socialLinks:"",
+    },
+  ]
   return (
     <div>
       <Navbar></Navbar>
@@ -22,8 +62,10 @@ function LandingPage() {
             on best APR provided by Different provide
           </span>
           <span className="button_conatiner">
-            <AppButton styles={{ display: "flex", gap: "0.5rem" }}>
-              Launch App
+            <AppButton styles={{ display: "flex", gap: "0.5rem",backgroundColor: "rgb(135,169,240)" }}
+            onClick={()=>state.isLandingPage=false}
+            >
+              <b>Launch App</b>
             </AppButton>
           </span>
         </div>
@@ -37,16 +79,16 @@ function LandingPage() {
           <small>PRICE</small>
         </span>
         <span>
-          <h1>$600.30m</h1>
-          <small>TOTAL LIQUIDITY</small>
+          <h1>$60.30m</h1>
+          <small>TOTAL LIQUIDITY STAKED</small>
         </span>
         <span>
-          <h1>$323.18b</h1>
-          <small>TOTAL VOLUME</small>
+          <h1>$3.18m</h1>
+          <small>TOTAL APR EARNED</small>
         </span>
         <span>
-          <h1>40.37k</h1>
-          <small>TOTAL PAIRS</small>
+          <h1>$40.37k</h1>
+          <small>AMOUNT DEPOSITED IN LAST 24HR</small>
         </span>
       </section>
       <section className="team_section">
@@ -54,18 +96,20 @@ function LandingPage() {
           <span className="team_heading">Our Team</span>
         </div>
         <div className="team_cards">
-          <div className="rishabh_infodiv">
+          {teamMembers.map((member,index)=>(
+          <div className="rishabh_infodiv" key={index}>
             <span>
-              <img className="rishabh_card" src={Steafenpic}></img>
+              <img className="rishabh_card" src={member.profilePic}></img>
             </span>
-            <span>Rishabh Raghwendra</span>
-            <span>Frontend developer</span>
+            <span>{member.name}</span>
+            <span>{member.designation}</span>
             <span>
               <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
               <BsGithub></BsGithub>
             </span>
           </div>
-          <div className="rishabh_infodiv">
+          ))}
+          {/* <div className="rishabh_infodiv">
             <span>
               <img className="rishabh_card" src={Steafenpic}></img>
             </span>
@@ -119,7 +163,7 @@ function LandingPage() {
               <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
               <BsGithub></BsGithub>
             </span>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>
