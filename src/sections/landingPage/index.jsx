@@ -8,6 +8,7 @@ import Rishbhpic from "../../assets/rishabh.jpeg";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
+import Steafenpic from "../../assets/stefan.png";
 
 function LandingPage() {
   return (
@@ -55,12 +56,34 @@ function LandingPage() {
         <div className="team_cards">
           <div className="rishabh_infodiv">
             <span>
-              <img className="rishabh_card" src={Rishbhpic}></img>
+              <img className="rishabh_card" src={Steafenpic}></img>
             </span>
             <span>Rishabh Raghwendra</span>
             <span>Frontend developer</span>
             <span>
-              <BsLinkedin></BsLinkedin>
+              <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
+              <BsGithub></BsGithub>
+            </span>
+          </div>
+          <div className="rishabh_infodiv">
+            <span>
+              <img className="rishabh_card" src={Steafenpic}></img>
+            </span>
+            <span>Rishabh Raghwendra</span>
+            <span>Frontend developer</span>
+            <span>
+              <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
+              <BsGithub></BsGithub>
+            </span>
+          </div>
+          <div className="rishabh_infodiv">
+            <span>
+              <img className="rishabh_card" src={Steafenpic}></img>
+            </span>
+            <span>Rishabh Raghwendra</span>
+            <span>Frontend developer</span>
+            <span>
+              <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
               <BsGithub></BsGithub>
             </span>
           </div>
@@ -71,7 +94,7 @@ function LandingPage() {
             <span>Rishabh Raghwendra</span>
             <span>Frontend developer</span>
             <span>
-              <BsLinkedin></BsLinkedin>
+              <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
               <BsGithub></BsGithub>
             </span>
           </div>
@@ -82,7 +105,7 @@ function LandingPage() {
             <span>Rishabh Raghwendra</span>
             <span>Frontend developer</span>
             <span>
-              <BsLinkedin></BsLinkedin>
+              <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
               <BsGithub></BsGithub>
             </span>
           </div>
@@ -93,29 +116,7 @@ function LandingPage() {
             <span>Rishabh Raghwendra</span>
             <span>Frontend developer</span>
             <span>
-              <BsLinkedin></BsLinkedin>
-              <BsGithub></BsGithub>
-            </span>
-          </div>
-          <div className="rishabh_infodiv">
-            <span>
-              <img className="rishabh_card" src={Rishbhpic}></img>
-            </span>
-            <span>Rishabh Raghwendra</span>
-            <span>Frontend developer</span>
-            <span>
-              <BsLinkedin></BsLinkedin>
-              <BsGithub></BsGithub>
-            </span>
-          </div>
-          <div className="rishabh_infodiv">
-            <span>
-              <img className="rishabh_card" src={Rishbhpic}></img>
-            </span>
-            <span>Rishabh Raghwendra</span>
-            <span>Frontend developer</span>
-            <span>
-              <BsLinkedin></BsLinkedin>
+              <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
               <BsGithub></BsGithub>
             </span>
           </div>
