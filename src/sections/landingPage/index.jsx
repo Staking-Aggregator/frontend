@@ -10,6 +10,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import Steafenpic from "../../assets/stefan.png";
 import AnubhaPic from "../../assets/anubha-pic.jpeg";
+import BomaPic from "../../assets/boma-pic.jpg";
 import state from "../../store";
 
 function LandingPage() {
@@ -45,9 +46,9 @@ function LandingPage() {
       socialLinks: "",
     },
     {
-      name: "Anubha Kumari",
-      designation: "Blockchain Developer",
-      profilePic: AnubhaPic,
+      name: "Mercy Boma",
+      designation: "Frontend Developer",
+      profilePic: BomaPic,
       socialLinks: "",
     },
   ];
