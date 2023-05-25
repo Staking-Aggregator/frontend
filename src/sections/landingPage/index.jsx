@@ -15,42 +15,42 @@ import state from "../../store";
 function LandingPage() {
   const teamMembers = [
     {
-      name:"Stefan Hafele",
-      designation:"Project Manager",
-      profilePic:Steafenpic,
-      socialLinks:"",
+      name: "Stefan Hafele",
+      designation: "Project Manager",
+      profilePic: Steafenpic,
+      socialLinks: "",
     },
     {
-      name:"Stefan Hafele",
-      designation:"Project Manager",
-      profilePic:Steafenpic,
-      socialLinks:"",
+      name: "Stefan Hafele",
+      designation: "Project Manager",
+      profilePic: Steafenpic,
+      socialLinks: "",
     },
     {
-      name:"Stefan Hafele",
-      designation:"Project Manager",
-      profilePic:Steafenpic,
-      socialLinks:"",
+      name: "Stefan Hafele",
+      designation: "Project Manager",
+      profilePic: Steafenpic,
+      socialLinks: "",
     },
     {
-      name:"Rishabh Raghwendra",
-      designation:"Blockchain Developer",
-      profilePic:Rishbhpic,
-      socialLinks:"",
+      name: "Rishabh Raghwendra",
+      designation: "Blockchain Developer",
+      profilePic: Rishbhpic,
+      socialLinks: "",
     },
     {
-      name:"Anubha Kumari",
-      designation:"Frontend Developer",
-      profilePic:AnubhaPic,
-      socialLinks:"",
+      name: "Anubha Kumari",
+      designation: "Frontend Developer",
+      profilePic: AnubhaPic,
+      socialLinks: "",
     },
     {
-      name:"Anubha Kumari",
-      designation:"Frontend Developer",
-      profilePic:AnubhaPic,
-      socialLinks:"",
+      name: "Anubha Kumari",
+      designation: "Blockchain Developer",
+      profilePic: AnubhaPic,
+      socialLinks: "",
     },
-  ]
+  ];
   return (
     <div>
       <Navbar></Navbar>
@@ -62,8 +62,13 @@ function LandingPage() {
             on best APR provided by Different provide
           </span>
           <span className="button_conatiner">
-            <AppButton styles={{ display: "flex", gap: "0.5rem",backgroundColor: "rgb(135,169,240)" }}
-            onClick={()=>state.isLandingPage=false}
+            <AppButton
+              styles={{
+                display: "flex",
+                gap: "0.5rem",
+                backgroundColor: "rgb(135,169,240)",
+              }}
+              onClick={() => (state.isLandingPage = false)}
             >
               <b>Launch App</b>
             </AppButton>
@@ -96,18 +101,18 @@ function LandingPage() {
           <span className="team_heading">Our Team</span>
         </div>
         <div className="team_cards">
-          {teamMembers.map((member,index)=>(
-          <div className="rishabh_infodiv" key={index}>
-            <span>
-              <img className="rishabh_card" src={member.profilePic}></img>
-            </span>
-            <span>{member.name}</span>
-            <span>{member.designation}</span>
-            <span>
-              <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
-              <BsGithub></BsGithub>
-            </span>
-          </div>
+          {teamMembers.map((member, index) => (
+            <div className="rishabh_infodiv" key={index}>
+              <span>
+                <img className="rishabh_card" src={member.profilePic}></img>
+              </span>
+              <span>{member.name}</span>
+              <span>{member.designation}</span>
+              <span>
+                <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
+                <BsGithub></BsGithub>
+              </span>
+            </div>
           ))}
           {/* <div className="rishabh_infodiv">
             <span>
