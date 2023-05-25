@@ -59,7 +59,7 @@ function Navbar() {
           </IconButton> 
           */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <img src={NameLogo} height={80}></img>
+            <img src={NameLogo} height={80} onClick={()=>state.isLandingPage=true}></img>
           </Typography>
           <div className="navbar-action-buttons">
             <div className="navbar-average">
