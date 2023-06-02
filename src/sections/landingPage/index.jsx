@@ -55,48 +55,50 @@ function LandingPage() {
   return (
     <div>
       <Navbar></Navbar>
-      <section className="hero_section">
-        <div className="text_container">
-          <span className="name_text">STAKEBOOST</span>
-          <span className="small_text">
-            Stakeboost is a yield staking aggregator. It stakes & restakes based
-            on best APR provided by Different provide
+      <div className="container">
+        <section className="hero_section">
+          <div className="text_container">
+            <span className="name_text">STAKEBOOST</span>
+            <span className="small_text">
+              Stakeboost is a yield staking aggregator. It stakes & restakes
+              based on best APR provided by Different provide
+            </span>
+            <span className="button_conatiner">
+              <AppButton
+                styles={{
+                  display: "flex",
+                  gap: "0.5rem",
+                  backgroundColor: "rgb(135,169,240)",
+                }}
+                onClick={() => (state.isLandingPage = false)}
+              >
+                <b>Launch App</b>
+              </AppButton>
+            </span>
+          </div>
+          <div className="img_conatiner">
+            <img className="img_conatiner" src={Etheriumpic}></img>
+          </div>
+        </section>
+        <section className="stats_section">
+          <span>
+            <h1>$0.91</h1>
+            <small>PRICE</small>
           </span>
-          <span className="button_conatiner">
-            <AppButton
-              styles={{
-                display: "flex",
-                gap: "0.5rem",
-                backgroundColor: "rgb(135,169,240)",
-              }}
-              onClick={() => (state.isLandingPage = false)}
-            >
-              <b>Launch App</b>
-            </AppButton>
+          <span>
+            <h1>$60.30m</h1>
+            <small>TOTAL LIQUIDITY STAKED</small>
           </span>
-        </div>
-        <div className="img_conatiner">
-          <img className="img_conatiner" src={Etheriumpic}></img>
-        </div>
-      </section>
-      <section className="stats_section">
-        <span>
-          <h1>$0.91</h1>
-          <small>PRICE</small>
-        </span>
-        <span>
-          <h1>$60.30m</h1>
-          <small>TOTAL LIQUIDITY STAKED</small>
-        </span>
-        <span>
-          <h1>$3.18m</h1>
-          <small>TOTAL APR EARNED</small>
-        </span>
-        <span>
-          <h1>$40.37k</h1>
-          <small>AMOUNT DEPOSITED IN LAST 24HR</small>
-        </span>
-      </section>
+          <span>
+            <h1>$3.18m</h1>
+            <small>TOTAL APR EARNED</small>
+          </span>
+          <span>
+            <h1>$40.37k</h1>
+            <small>AMOUNT DEPOSITED IN LAST 24HR</small>
+          </span>
+        </section>
+      </div>
       <section className="team_section">
         <div>
           <span className="team_heading">Our Team</span>
