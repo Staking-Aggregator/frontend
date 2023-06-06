@@ -3,7 +3,7 @@ import { CardContent, CardMedia, CardActions } from "@mui/material";
 import { useSnapshot } from "valtio";
 import { AppCard, AppButton,StakingCard } from "../../components";
 import state from "../../store";
-import { LidoAPR,RocketPoolAPR } from "../../utils";
+import { LidoAPR } from "../../utils";
 import LidoLogo from "../../assets/lido.png";
 import RockePoolLogo from "../../assets/rocketpool.png";
 import StakeWiseLogo from "../../assets/stakewise.png";
@@ -12,6 +12,8 @@ import "./index.css";
 
 function Providers() {
   const snap = useSnapshot(state);
+  const [selectedProvider, setSelectedProvider] = useState();
+  const [lidoAPR, setLidoAPR] = useState('');
   const [providers, setProviders] = useState([
     {
       providerLogo: LidoLogo,
@@ -51,23 +53,20 @@ function Providers() {
     return response.toFixed(2);
   }
   useEffect(() => {
-    (async () =>{
-      let tempProviders = await Promise.all(providers.map(async provider=>{
-        if(provider.providerName === "Lido Staked ETH"){
-          return {
-            ...provider,
-            providerNetApr:`${await toBeFixedAPR(LidoAPR)}%`
-          }
-        }
-        return provider;
-      }))
-      // const responses = await Promise.all([LidoAPR()])
-      setProviders(tempProviders);
-      console.log("in providers responses: ",tempProviders);
-    })()
+    fetchLidoAPR()
   }, [])
-  
-  const [selectedProvider, setSelectedProvider] = useState();
+  const fetchLidoAPR = async ()=>{
+    const response = await toBeFixedAPR(LidoAPR);
+    let allProviders =providers.map(e=>{
+      if(e.providerName === "Lido Staked ETH"){
+        let provider = {...e};
+        provider.providerNetApr = `${response}%`;
+        return provider;
+      }
+      return e;
+    })
+    setProviders(allProviders);
+  }
   // const providers = [
   //   {
   //     providerLogo: LidoLogo,
