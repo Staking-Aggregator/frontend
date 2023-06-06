@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Box,
@@ -10,9 +10,9 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { alpha, styled } from "@mui/material/styles";
 import { useSnapshot } from "valtio";
-import { ethers } from 'ethers';
+import { ethers } from "ethers";
 import state from "../../store";
-import {connectWallet} from '../../utils';
+import { connectWallet } from "../../utils";
 import AppButton from "../CustomButton";
 import ETHStakinChainlinkDataFeed from "../../contracts-abi/ETHStakingChainlinkDataFeed.json";
 import EthereumLogo from "../../assets/etherem-logo.png";
@@ -25,25 +25,32 @@ const CustomNavbar = styled(AppBar)(({ theme }) => ({
 
 function Navbar() {
   const snap = useSnapshot(state);
-  const [currentAvgAPR, setCurrentAvgAPR] = useState('');
+  const [currentAvgAPR, setCurrentAvgAPR] = useState("");
 
   const handleClickByETH = () => {
-    window.open("https://app.uniswap.org/#/swap", "_blank");
+    window.open("https://verse.bitcoin.com/", "_blank");
   };
   useEffect(() => {
-    (async ()=>{
-      const chainlinkETHAPRContractAddress = '0xceA6Aa74E6A86a7f85B571Ce1C34f1A60B77CD29';
-      const provider = new ethers.providers.JsonRpcProvider(import.meta.env.VITE_QUICK_NODE_PROVIDER_API);
-      const contract = new ethers.Contract(chainlinkETHAPRContractAddress, ETHStakinChainlinkDataFeed, provider);
+    (async () => {
+      const chainlinkETHAPRContractAddress =
+        "0xceA6Aa74E6A86a7f85B571Ce1C34f1A60B77CD29";
+      const provider = new ethers.providers.JsonRpcProvider(
+        import.meta.env.VITE_QUICK_NODE_PROVIDER_API
+      );
+      const contract = new ethers.Contract(
+        chainlinkETHAPRContractAddress,
+        ETHStakinChainlinkDataFeed,
+        provider
+      );
       try {
         const result = await contract.latestRoundData();
-        setCurrentAvgAPR(((result[1]/10000000)*100).toFixed(2));
+        setCurrentAvgAPR(((result[1] / 10000000) * 100).toFixed(2));
       } catch (error) {
-        console.error('Error:', error);
+        console.error("Error:", error);
       }
-    })()
-  }, [])
-  
+    })();
+  }, []);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <CustomNavbar position="static">
@@ -76,13 +83,18 @@ function Navbar() {
               <img src={EthereumLogo} width={"auto"} height={20} />
             </div>
             <AppButton
-            onClick={connectWallet}
+              onClick={connectWallet}
               styles={{
                 backgroundColor: "rgba(255, 63, 109, 0.1)",
                 color: "rgba(255,0,61,1)",
               }}
             >
-              {snap.walletAddress?`${snap.walletAddress?.slice(0,5)}...${snap.walletAddress?.slice(-3)}`:'Connect Wallet'}
+              {snap.walletAddress
+                ? `${snap.walletAddress?.slice(
+                    0,
+                    5
+                  )}...${snap.walletAddress?.slice(-3)}`
+                : "Connect Wallet"}
             </AppButton>
           </div>
         </Toolbar>
