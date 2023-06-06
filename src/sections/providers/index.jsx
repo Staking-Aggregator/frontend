@@ -8,6 +8,8 @@ import LidoLogo from "../../assets/lido.png";
 import RockePoolLogo from "../../assets/rocketpool.png";
 import StakeWiseLogo from "../../assets/stakewise.png";
 import StafiLogo from "../../assets/stafi.png";
+import BalancerLogo from "../../assets/balancer.png";
+import BalancernamedLogo from "../../assets/balancer-logo.jpg";
 import "./index.css";
 
 function Providers() {
@@ -162,15 +164,70 @@ function Providers() {
                   >
                     Stake
                   </AppButton>
-                  <AppButton
+                  {/* <AppButton
                     styles={{ backgroundColor: "rgba(238,238,238,0.1)" }}
                   >
                     Learn More
-                  </AppButton>
+                  </AppButton> */}
                 </CardActions>
               </AppCard>
             ))}
           </div>
+          <section className="boost_container">
+            <span className="boost_heading">Boost your Rewards</span>
+            <AppCard
+              styles={{ backgroundColor: "#1d1e1f", width: "fit-content" }}
+            >
+              <CardContent>
+                <span>
+                  Boost your rewards by joining our Staking Pool. You can gain
+                  another x.xx % in APR. How? Extra yield is coming from both
+                  from fees within the balancer pool and from lending via AAVE
+                  How? Extra yield is coming from both from fees within the
+                  balancer pool and from lending via AAVE How? Extra yield is
+                  coming from both from fees within the balancer pool and from
+                  lending via AAVE
+                </span>
+
+                <AppCard
+                  className="balancer"
+                  styles={{ width: "fit-content", marginTop: "1rem" }}
+                >
+                  <span className="balancer_container">
+                    <img
+                      src={BalancerLogo}
+                      alt=""
+                      style={{ width: "2.5rem", height: "2.5rem" }}
+                    ></img>
+                    <p>Balancer</p>
+                  </span>
+                  <div className="provider-apr">
+                    <h2>4.89%</h2>
+                    <span>Net APR</span>
+                  </div>
+                </AppCard>
+                <AppButton
+                  styles={{
+                    backgroundColor: "rgb(135,169,240)",
+                    color: "white",
+                    marginTop: "2rem",
+                  }}
+                >
+                  BOOST YOUR STAKING
+                </AppButton>
+                <div className="poweredby_container">
+                  <span>Powered by</span>
+                  <span>
+                    <img
+                      src={BalancernamedLogo}
+                      alt=""
+                      style={{ width: "9rem", height: "2.5rem" }}
+                    ></img>
+                  </span>
+                </div>
+              </CardContent>
+            </AppCard>
+          </section>
           <div className="cardheading-container">
             <div className="heading">
               <span className="heading_text">How to stake</span>

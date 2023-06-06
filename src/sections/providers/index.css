@@ -58,3 +58,32 @@
   line-height: 3.5rem;
   box-sizing: inherit;
 }
+.balancer_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.balancer {
+  width: fit-content;
+}
+.boost_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.boost_heading {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 3.5rem;
+  box-sizing: inherit;
+}
+.poweredby_container {
+  display: flex;
+  flex-direction: column;
+  float: right;
+  margin-top: 4rem;
+}
