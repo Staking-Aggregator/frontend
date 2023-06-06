@@ -71,19 +71,23 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 2rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-
 .boost_heading {
   font-weight: 600;
   font-size: 3rem;
   line-height: 3.5rem;
   box-sizing: inherit;
 }
+.boost_staking-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .poweredby_container {
   display: flex;
   flex-direction: column;
   float: right;
-  margin-top: 4rem;
 }

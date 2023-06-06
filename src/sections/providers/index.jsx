@@ -8,8 +8,10 @@ import LidoLogo from "../../assets/lido.png";
 import RockePoolLogo from "../../assets/rocketpool.png";
 import StakeWiseLogo from "../../assets/stakewise.png";
 import StafiLogo from "../../assets/stafi.png";
-import BalancerLogo from "../../assets/balancer.png";
-import BalancernamedLogo from "../../assets/balancer-logo.jpg";
+// import BalancerLogo from "../../assets/balancer.png";
+import BalancerLogo from "../../assets/balancer-symbol-logo.svg";
+// import BalancernamedLogo from "../../assets/balancer-logo.jpg";
+import BalancernamedLogo from "../../assets/balancer-logo.svg";
 import "./index.css";
 
 function Providers() {
@@ -185,7 +187,7 @@ function Providers() {
                   coming from both from fees within the balancer pool and from
                   lending via AAVE
                 </span>
-
+                <div className="boost_staking-card">
                 <AppCard
                   className="balancer"
                   styles={{ width: "fit-content", marginTop: "1rem" }}
@@ -194,7 +196,7 @@ function Providers() {
                     <img
                       src={BalancerLogo}
                       alt=""
-                      style={{ width: "2.5rem", height: "2.5rem" }}
+                      style={{ width: "2rem" }}
                     ></img>
                     <p>Balancer</p>
                   </span>
@@ -202,7 +204,6 @@ function Providers() {
                     <h2>4.89%</h2>
                     <span>Net APR</span>
                   </div>
-                </AppCard>
                 <AppButton
                   styles={{
                     backgroundColor: "rgb(135,169,240)",
@@ -212,6 +213,8 @@ function Providers() {
                 >
                   BOOST YOUR STAKING
                 </AppButton>
+                </AppCard>
+              </div>
                 <div className="poweredby_container">
                   <span>Powered by</span>
                   <span>
