@@ -1,4 +1,4 @@
 import connectWallet from './connectWallet';
-import { LidoAPR } from './fetchProviderLiveAPR';
+import { LidoAPR, BalancerPoolApr } from './fetchProviderLiveAPR';
 
-export {connectWallet,LidoAPR}
+export {connectWallet, LidoAPR, BalancerPoolApr}

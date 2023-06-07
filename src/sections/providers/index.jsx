@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { CardContent, CardMedia, CardActions } from "@mui/material";
 import { useSnapshot } from "valtio";
-import { AppCard, AppButton, StakingCard } from "../../components";
+import { AppCard, AppButton, StakingCard, PoolDetailsCard } from "../../components";
 import state from "../../store";
-import { LidoAPR } from "../../utils";
+import { LidoAPR, RocketPoolAPR } from "../../utils";
 import LidoLogo from "../../assets/lido.png";
 import RockePoolLogo from "../../assets/rocketpool.png";
 import StakeWiseLogo from "../../assets/stakewise.png";
@@ -115,6 +115,30 @@ function Providers() {
   //     providerNetApr: "4.89%",
   //   },
   // ];
+  const [poolDetailList, setPoolDetailList] = useState([
+    {
+      poolName: "Balancer V3",
+      poolNetApr: "2.35%",
+    }
+  ]);
+  useEffect(() => {
+    (async () => {
+      let tempPoolList = await Promise.all(
+        poolDetailList.map(async (poolItem) => {
+          if (poolItem.poolName === "Balancer V3") {
+            return {
+              ...poolItem,
+              poolNetApr: `${await BalancerPoolApr()}%`,
+            };
+          }
+          return poolItem;
+        })
+      );
+      // const responses = await Promise.all([LidoAPR()])
+      setPoolDetailList(tempPoolList);
+      console.log("in providers responses: ", tempPoolList);
+    })();
+  }, []);
   return (
     <div className="providers-root-div">
       {!snap.isStakingScreen ? (
@@ -241,6 +265,7 @@ function Providers() {
               </CardContent>
             </AppCard>
           </section>
+          <PoolDetailsCard {...poolDetailList[0]} />
           <div className="cardheading-container">
             <div className="heading">
               <span className="heading_text">How to stake</span>
