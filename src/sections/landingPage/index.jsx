@@ -11,6 +11,8 @@ import { BsGithub } from "react-icons/bs";
 import Steafenpic from "../../assets/stefan.png";
 import AnubhaPic from "../../assets/anubha-pic.jpeg";
 import BomaPic from "../../assets/boma-pic.jpg";
+import PeterPic from "../../assets/peter.png";
+import AbhishekPic from "../../assets/arlak.jpg";
 import state from "../../store";
 
 function LandingPage() {
@@ -19,37 +21,37 @@ function LandingPage() {
       name: "Stefan Hafele",
       designation: "Project Manager",
       profilePic: Steafenpic,
-      socialLinks: "",
+      socialLinks: "https://www.linkedin.com/in/stefan-h%C3%A4fele-54465592/",
     },
     {
       name: "Stefan Hafele",
       designation: "Project Manager",
-      profilePic: Steafenpic,
-      socialLinks: "",
+      profilePic: PeterPic,
+      socialLinks: "https://www.linkedin.com/in/peter-krulis-4921751a2/",
     },
     {
-      name: "Stefan Hafele",
-      designation: "Project Manager",
-      profilePic: Steafenpic,
-      socialLinks: "",
+      name: "Abhishek Kalra",
+      designation: "Developer",
+      profilePic: AbhishekPic,
+      socialLinks: "https://www.linkedin.com/in/abhishekabk5/",
     },
     {
       name: "Rishabh Raghwendra",
       designation: "Blockchain Developer",
       profilePic: Rishbhpic,
-      socialLinks: "",
+      socialLinks: "https://www.linkedin.com/in/rishabh-sde/",
     },
     {
       name: "Anubha Kumari",
       designation: "Frontend Developer",
       profilePic: AnubhaPic,
-      socialLinks: "",
+      socialLinks: "https://www.linkedin.com/in/anubha-kumari-329753221/",
     },
     {
       name: "Mercy Boma",
-      designation: "Frontend Developer",
+      designation: "Blockchain Developer",
       profilePic: BomaPic,
-      socialLinks: "",
+      socialLinks: "https://www.linkedin.com/in/mercy-boma-a7765b228/",
     },
   ];
   return (
@@ -112,8 +114,8 @@ function LandingPage() {
               <span>{member.name}</span>
               <span>{member.designation}</span>
               <span>
-                <BsLinkedin style={{ marginRight: "1rem" }}></BsLinkedin>
-                <BsGithub></BsGithub>
+                <BsLinkedin style={{ marginRight: "1rem" }} onClick={()=>window.open(member.socialLinks,"_blank")}></BsLinkedin>
+                {/* <BsGithub></BsGithub> */}
               </span>
             </div>
           ))}
