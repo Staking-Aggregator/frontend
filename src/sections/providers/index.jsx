@@ -118,7 +118,7 @@ function Providers() {
   const [poolDetailList, setPoolDetailList] = useState([
     {
       poolName: "Balancer V3",
-      poolNetApr: "2.35%",
+      poolSpotPrice: "--",
     }
   ]);
   useEffect(() => {
@@ -126,9 +126,12 @@ function Providers() {
       let tempPoolList = await Promise.all(
         poolDetailList.map(async (poolItem) => {
           if (poolItem.poolName === "Balancer V3") {
+            let poolItemDetails = await BalancerPoolApr();
+            console.log("in pool details response: ", poolItemDetails);
             return {
               ...poolItem,
-              poolNetApr: `${await BalancerPoolApr()}%`,
+              poolTokens: `${poolItemDetails.poolTokens}`,
+              poolSpotPrice: `${poolItemDetails.poolSpotPrice}`,
             };
           }
           return poolItem;

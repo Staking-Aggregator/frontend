@@ -3,7 +3,8 @@ import { CardContent } from "@mui/material"
 
 function PoolDetailsCard({
   poolName,
-  poolNetApr,
+  poolTokens,
+  poolSpotPrice,
 }) {
   return (
     <div className="pool-details-card-root">
@@ -11,11 +12,8 @@ function PoolDetailsCard({
         <div className="card-container">
           <CardContent>
             <div className="pool-details">
-              <h3>{poolName}</h3>
-              <div className="provider-apr">
-                <h2>{poolNetApr}</h2>
-                <span>Net APR</span>
-              </div>
+              <h3>{poolName}: {poolTokens}</h3>
+              <h2>SpotPrice: {poolSpotPrice}</h2>
             </div>
           </CardContent>
         </div>
