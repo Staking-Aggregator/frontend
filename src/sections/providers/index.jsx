@@ -3,7 +3,7 @@ import { CardContent, CardMedia, CardActions } from "@mui/material";
 import { useSnapshot } from "valtio";
 import { AppCard, AppButton, StakingCard, PoolDetailsCard } from "../../components";
 import state from "../../store";
-import { LidoAPR, RocketPoolAPR } from "../../utils";
+import { LidoAPR, BalancerPoolApr } from "../../utils";
 import LidoLogo from "../../assets/lido.png";
 import RockePoolLogo from "../../assets/rocketpool.png";
 import StakeWiseLogo from "../../assets/stakewise.png";
