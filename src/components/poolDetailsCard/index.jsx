@@ -2,9 +2,11 @@ import AppCard from "../CustomCard";
 import { CardContent } from "@mui/material"
 
 function PoolDetailsCard({
-  poolName,
-  poolTokens,
-  poolSpotPrice,
+  name,
+  tokens,
+  apr,
+  spotPrice,
+  swapFees,
 }) {
   return (
     <div className="pool-details-card-root">
@@ -12,8 +14,10 @@ function PoolDetailsCard({
         <div className="card-container">
           <CardContent>
             <div className="pool-details">
-              <h3>{poolName}: {poolTokens}</h3>
-              <h2>SpotPrice: {poolSpotPrice}</h2>
+              <h2>{name}: {tokens}</h2>
+              {/* {!apr ? (<span>APR: {apr}   </span>) : {}} */}
+              <span>SpotPrice: {spotPrice}</span>
+              <span>SwapFees: {swapFees}</span>
             </div>
           </CardContent>
         </div>

@@ -117,21 +117,27 @@ function Providers() {
   // ];
   const [poolDetailList, setPoolDetailList] = useState([
     {
-      poolName: "Balancer V3",
-      poolSpotPrice: "--",
+      name: 'Balancer V3',
+      tokens: 'ETH/BTC',
+      apr: '-%',
+      spotPrice: '--',
+      swapFees: '-%',
     }
   ]);
   useEffect(() => {
     (async () => {
       let tempPoolList = await Promise.all(
         poolDetailList.map(async (poolItem) => {
-          if (poolItem.poolName === "Balancer V3") {
-            let poolItemDetails = await BalancerPoolApr();
-            console.log("in pool details response: ", poolItemDetails);
+          if (poolItem.name === 'Balancer V3') {
+            let poolInfo = await BalancerPoolApr();
+            console.log("in pool details response: ", poolInfo);
             return {
               ...poolItem,
-              poolTokens: `${poolItemDetails.poolTokens}`,
-              poolSpotPrice: `${poolItemDetails.poolSpotPrice}`,
+              tokens: `${poolInfo.tokens}`,
+              // volume: 
+              apr: `${poolInfo.apr}%`,
+              spotPrice: `${poolInfo.spotPrice}`,
+              swapFees: `${poolInfo.swapFees}%`,
             };
           }
           return poolItem;

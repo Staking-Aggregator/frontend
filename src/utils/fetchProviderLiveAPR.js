@@ -42,13 +42,18 @@ export async function BalancerPoolApr() {
   const poolItem = balancerPools[0];
   const poolId = poolItem.id;
   const pool = await balancer.pools.find(poolId);
+  console.log("pool info: ", pool);
   if (!pool) throw new BalancerError(BalancerErrorCode.POOL_DOESNT_EXIST);
   const spotPrice = await pool.calcSpotPrice(
     TokenAddress.BAL,
     TokenAddress.WETH
   );
   return {
-    poolTokens: poolItem.tokens,
-    poolSpotPrice: Number(spotPrice).toFixed(2)
+    name: pool.name,
+    tokens: poolItem.tokens,
+    // volume: Number(pool.totalSwapVolume),
+    apr: pool.apr,
+    spotPrice: Number(spotPrice).toFixed(2),
+    swapFees: pool.swapFee,
   };
 }
