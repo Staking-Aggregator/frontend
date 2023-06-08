@@ -9,6 +9,15 @@ const connectWallet = async () =>{
       state.provider = provider;
       state.signer = signer;
       state.walletAddress = walletAddress[0];
+      try {
+        await provider.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: "0x13881"}],
+        });
+        console.log("You have switched to the right network")
+      } catch (error) {
+        console.log("Not able to switch network");
+      }
     }
     else{
       alert("Your browser don't have metamask installed. Please install it first.")

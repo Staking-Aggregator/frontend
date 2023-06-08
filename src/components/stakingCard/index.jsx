@@ -1,5 +1,7 @@
-import React from "react";
+import React,{useState} from "react";
 import { CardContent, CardMedia, CardActions,TextField } from "@mui/material";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { ethers } from "ethers";
 import AppCard from "../CustomCard";
 import AppButton from "../CustomButton";
 import AppTextBox from "../CustomTextBox";
@@ -11,10 +13,32 @@ function StakingCard({
   tokenSymbol,
   tokenPrice,
   providerNetApr,
+  providerContractAddress,
+  providerABI,
+  onBack
 }) {
+  const [amount, setAmount] = useState('');
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const handleGetWrappedToken = async ()=>{
+    const contract = new ethers.Contract(providerContractAddress,providerABI,signer);
+    try {
+      const token = await contract.deposit({value:ethers.utils.parseEther(amount.toString())});
+      await token.wait();
+      alert("Transfered"+tokenSymbol);
+    } catch (error) {
+      console.log("Error while transfering: ",error);
+    }
+    
+  }
   return (
     <div className="staking-card-root-div">
       <AppCard styles={{ backgroundColor: "#1d1e1f",width:'fit-content',height:'fit-content' }}>
+        <ArrowBackIcon style={{
+          cursor:'pointer',
+        }}
+        onClick={onBack}
+        />
         <div className="card-container">
           <div className="provider-logo">
             <CardMedia
@@ -59,6 +83,7 @@ function StakingCard({
               id="outlined-basic" 
               label="Enter ETH Amount" 
               variant="outlined" 
+              onChange={(e)=>setAmount(e.target.value)}
               />
               </div>
             </div>
@@ -73,7 +98,7 @@ function StakingCard({
               backgroundColor: "rgb(135,169,240)",
               color: "white",
             }}
-            //   onClick={()=>state.isStakingScreen=true}
+              onClick={handleGetWrappedToken}
           >
             Stake
           </AppButton>

@@ -19,9 +19,9 @@ const CustomTextBox = styled(TextField)(({ theme }) => ({
       },
   }));
 
-function AppTextBox({ children, styles, onClick,label }) {
+function AppTextBox({ children, styles, onChange,label }) {
   return (
-    <CustomTextBox sx={styles} onClick={onClick} label={label}>
+    <CustomTextBox sx={styles} onChange={onChange} label={label}>
       {children}
     </CustomTextBox>
   );

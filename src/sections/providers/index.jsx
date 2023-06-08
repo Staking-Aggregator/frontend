@@ -12,6 +12,7 @@ import StafiLogo from "../../assets/stafi.png";
 import BalancerLogo from "../../assets/balancer-symbol-logo.svg";
 // import BalancernamedLogo from "../../assets/balancer-logo.jpg";
 import BalancernamedLogo from "../../assets/balancer-logo.svg";
+import LidoABI from "../../contracts-abi/Lido.json";
 import "./index.css";
 
 function Providers() {
@@ -23,9 +24,12 @@ function Providers() {
       providerLogo: LidoLogo,
       altText: "Lido",
       providerName: "Lido Staked ETH",
-      tokenSymbol: "stEth",
+      tokenSymbol: "wstEth",
       tokenPrice: "($20.5)",
       providerNetApr: "5.02%",
+      providerContractAddress:import.meta.env.VITE_LIDO_ADDRESS,
+      providerABI:LidoABI,
+      providerPage:"https://stake.lido.fi/",
     },
     {
       providerLogo: RockePoolLogo,
@@ -34,6 +38,9 @@ function Providers() {
       tokenSymbol: "rETH",
       tokenPrice: "($62.1)",
       providerNetApr: "5.12%",
+      providerContractAddress:import.meta.env.VITE_ROCKETPOOL_ADDRESS,
+      providerABI:LidoABI,
+      providerPage:"https://stake.rocketpool.net/",
     },
     {
       providerLogo: StakeWiseLogo,
@@ -70,6 +77,9 @@ function Providers() {
       return e;
     })
     setProviders(allProviders);
+  }
+  const openProvider = (provider)=>{
+    window.open(provider,'_blank');
   }
   // const providers = [
   //   {
@@ -157,17 +167,20 @@ function Providers() {
                       color: "white",
                     }}
                     onClick={() => {
-                      state.isStakingScreen = true;
-                      setSelectedProvider(provider);
+                      openProvider(provider.providerPage)
                     }}
                   >
                     Stake
                   </AppButton>
-                  {/* <AppButton
+                  <AppButton
                     styles={{ backgroundColor: "rgba(238,238,238,0.1)" }}
+                    onClick={()=>{
+                      state.isStakingScreen = true;
+                      setSelectedProvider(provider);
+                    }}
                   >
-                    Learn More
-                  </AppButton> */}
+                    Buy {provider.tokenSymbol.toLowerCase()}
+                  </AppButton>
                 </CardActions>
               </AppCard>
             ))}
@@ -282,7 +295,10 @@ function Providers() {
           </div>
         </div>
       ) : (
-        <StakingCard {...selectedProvider} />
+        <StakingCard {...selectedProvider} onBack={()=>{
+          state.isStakingScreen = false;
+          setSelectedProvider();
+        }}/>
       )}
     </div>
   );
