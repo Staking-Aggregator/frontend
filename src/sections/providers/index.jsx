@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { CardContent, CardMedia, CardActions } from "@mui/material";
 import { useSnapshot } from "valtio";
-import { AppCard, AppButton, StakingCard } from "../../components";
+import { AppCard, AppButton, StakingCard, PoolDetailsCard } from "../../components";
 import state from "../../store";
-import { LidoAPR } from "../../utils";
+import { LidoAPR, BalancerPoolApr } from "../../utils";
 import LidoLogo from "../../assets/lido.png";
 import RockePoolLogo from "../../assets/rocketpool.png";
 import StakeWiseLogo from "../../assets/stakewise.png";
 import StafiLogo from "../../assets/stafi.png";
-// import BalancerLogo from "../../assets/balancer.png";
-import BalancerLogo from "../../assets/balancer-symbol-logo.svg";
-// import BalancernamedLogo from "../../assets/balancer-logo.jpg";
 import BalancernamedLogo from "../../assets/balancer-logo.svg";
 import LidoABI from "../../contracts-abi/Lido.json";
 import "./index.css";
@@ -18,7 +15,6 @@ import "./index.css";
 function Providers() {
   const snap = useSnapshot(state);
   const [selectedProvider, setSelectedProvider] = useState();
-  const [lidoAPR, setLidoAPR] = useState('');
   const [providers, setProviders] = useState([
     {
       providerLogo: LidoLogo,
@@ -115,6 +111,39 @@ function Providers() {
   //     providerNetApr: "4.89%",
   //   },
   // ];
+  const [poolDetailList, setPoolDetailList] = useState([
+    {
+      name: 'Balancer V3',
+      tokens: 'ETH/BTC',
+      apr: '-%',
+      spotPrice: '--',
+      swapFees: '-%',
+    }
+  ]);
+  useEffect(() => {
+    (async () => {
+      let tempPoolList = await Promise.all(
+        poolDetailList.map(async (poolItem) => {
+          if (poolItem.name === 'Balancer V3') {
+            let poolInfo = await BalancerPoolApr();
+            console.log("in pool details response: ", poolInfo);
+            return {
+              ...poolItem,
+              tokens: `${poolInfo.tokens}`,
+              // volume: 
+              apr: `${poolInfo.apr}%`,
+              spotPrice: `$${poolInfo.spotPrice}`,
+              swapFees: `${poolInfo.swapFees}%`,
+            };
+          }
+          return poolItem;
+        })
+      );
+      // const responses = await Promise.all([LidoAPR()])
+      setPoolDetailList(tempPoolList);
+      console.log("in providers responses: ", tempPoolList);
+    })();
+  }, []);
   return (
     <div className="providers-root-div">
       {!snap.isStakingScreen ? (
@@ -201,33 +230,8 @@ function Providers() {
                   lending via AAVE
                 </span>
                 <div className="boost_staking-card">
-                <AppCard
-                  className="balancer"
-                  styles={{ width: "fit-content", marginTop: "1rem" }}
-                >
-                  <span className="balancer_container">
-                    <img
-                      src={BalancerLogo}
-                      alt=""
-                      style={{ width: "2rem" }}
-                    ></img>
-                    <p>Balancer</p>
-                  </span>
-                  <div className="provider-apr">
-                    <h2>4.89%</h2>
-                    <span>Net APR</span>
-                  </div>
-                <AppButton
-                  styles={{
-                    backgroundColor: "rgb(135,169,240)",
-                    color: "white",
-                    marginTop: "2rem",
-                  }}
-                >
-                  BOOST YOUR STAKING
-                </AppButton>
-                </AppCard>
-              </div>
+                  <PoolDetailsCard {...poolDetailList[0]}/> 
+                </div>
                 <div className="poweredby_container">
                   <span>Powered by</span>
                   <span>
