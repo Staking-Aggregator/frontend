@@ -26,6 +26,8 @@ function Providers() {
       providerContractAddress:import.meta.env.VITE_LIDO_ADDRESS,
       providerABI:LidoABI,
       providerPage:"https://stake.lido.fi/",
+      balancerPoolAddr:'https://app.balancer.fi/#/arbitrum/pool/0x5a7f39435fd9c381e4932fa2047c9a5136a5e3e7000000000000000000000400',
+      swapPool:'https://app.balancer.fi/#/arbitrum/swap'
     },
     {
       providerLogo: RockePoolLogo,
@@ -37,6 +39,8 @@ function Providers() {
       providerContractAddress:import.meta.env.VITE_ROCKETPOOL_ADDRESS,
       providerABI:LidoABI,
       providerPage:"https://stake.rocketpool.net/",
+      balancerPoolAddr:'https://app.balancer.fi/#/arbitrum/pool/0xcba9ff45cfb9ce238afde32b0148eb82cbe635620000000000000000000003fd',
+      swapPool:'https://app.balancer.fi/#/arbitrum/swap'
     },
     {
       providerLogo: StakeWiseLogo,
@@ -196,7 +200,7 @@ function Providers() {
                       color: "white",
                     }}
                     onClick={() => {
-                      openProvider(provider.providerPage)
+                      openProvider(provider.swapPool)
                     }}
                   >
                     Stake
@@ -204,8 +208,9 @@ function Providers() {
                   <AppButton
                     styles={{ backgroundColor: "rgba(238,238,238,0.1)" }}
                     onClick={()=>{
-                      state.isStakingScreen = true;
-                      setSelectedProvider(provider);
+                      // state.isStakingScreen = true;
+                      // setSelectedProvider(provider);
+                      openProvider(provider.balancerPoolAddr);
                     }}
                   >
                     Buy {provider.tokenSymbol.toLowerCase()}
