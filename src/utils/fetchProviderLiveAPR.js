@@ -3,7 +3,7 @@ import { BalancerSDK, Network, BalancerError, BalancerErrorCode } from '@balance
 
 const balancerConfig = {
   network: Network.MAINNET,
-  rpcUrl: "https://eth-mainnet.g.alchemy.com/v2/X3pWptWZZw8U_ihy_DmLoZaS8THtFomu"
+  rpcUrl: import.meta.env.ALCHEMY_MAINNET_RPC_URL,
 }
 
 const balancerPools = [{
