@@ -190,17 +190,25 @@ function Providers() {
                   disableSpacing
                   sx={{
                     display: "flex",
+                    flexDirection:'column',
                     justifyContent: "center",
                     gap: "1rem",
                   }}
                 >
+                  <div
+                  style={{
+                    display:'flex',
+                    flexDirection:'row',
+                    gap:'1rem'
+                  }}
+                  >
                   <AppButton
                     styles={{
                       backgroundColor: "rgb(135,169,240)",
                       color: "white",
                     }}
                     onClick={() => {
-                      openProvider(provider.swapPool)
+                      openProvider(provider.providerPage)
                     }}
                   >
                     Stake
@@ -210,10 +218,22 @@ function Providers() {
                     onClick={()=>{
                       // state.isStakingScreen = true;
                       // setSelectedProvider(provider);
-                      openProvider(provider.balancerPoolAddr);
+                      openProvider(provider.swapPool);
                     }}
                   >
                     Buy {provider.tokenSymbol.toLowerCase()}
+                  </AppButton>
+
+                  </div>
+                  <AppButton
+                    styles={{ backgroundColor: "rgba(238,238,238,0.1)" }}
+                    onClick={()=>{
+                      // state.isStakingScreen = true;
+                      // setSelectedProvider(provider);
+                      openProvider(provider.balancerPoolAddr);
+                    }}
+                  >
+                    Boost Staking
                   </AppButton>
                 </CardActions>
               </AppCard>
